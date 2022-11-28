@@ -1,6 +1,9 @@
+Nx = 0 ;
+Ny = 0 ;
+
 function preload() 
 {
-
+ img = loadImage("https://i.postimg.cc/Bnn2rhLr/x.jpg") ;
 }
 
 function setup() 
@@ -25,14 +28,16 @@ function gotPoses(results)
     if(results.length > 0) 
     {
         console.log(results);
-        console.log("x = " + results[0].pose.nose.x);
-        console.log("y = " + results[0].pose.nose.y);
+        Nx = results[0].pose.nose.x - 15;
+        Ny = results[0].pose.nose.y + 5;
+        console.log(Nx+","+Ny);
     }
 }
 
 function draw() 
 {
     image(video,0,0,300,300) ;
+    image(img,Nx,Ny,60,40) ;
 }
 
 function tsk() 
